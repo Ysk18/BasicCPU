@@ -1,0 +1,52 @@
+Table 1: OPCODE field and symbols for operations and their descriptions.
+OPCODE (HEX) - SYMBOL - DESCRIPTION
+0x00 - BRA - PC ← PC + VALUE
+0x01 - BNE - IF Z=0 THEN PC ← PC + VALUE
+0x02 - BEQ - IF Z=1 THEN PC ← PC + VALUE
+0x03 - POP - SP ← SP + 1, Rx ← M[SP]
+0x04 - PSH - M[SP] ← Rx, SP ← SP – 1
+0x05 - INC - DSTREG ← SREG1 + 1
+0x06 - DEC - DSTREG ← SREG1 – 1
+0x07 - LSL - DSTREG ← LSL SREG1
+0x08 - LSR - DSTREG ← LSR SREG1
+0x09 - ASR - DSTREG ← ASR SREG1
+0x0A - CSL - DSTREG ← CSL SREG1
+0x0B - CSR - DSTREG ← CSR SREG1
+0x0C - AND - DSTREG ← SREG1 AND SREG2
+0x0D - ORR - DSTREG ← SREG1 OR SREG2
+0x0E - NOT - DSTREG ← NOT SREG1
+0x0F - XOR - DSTREG ← SREG1 XOR SREG2
+0x10 - NAND - DSTREG ← SREG1 NAND SREG2
+0x11 - MOVH - DSTREG[15:8] ← IMMEDIATE (8-bit)
+0x12 - LDR (16-bit) - Rx ← M[AR] (AR is 16-bit register)
+0x13 - STR (16-bit) - M[AR] ← Rx (AR is 16-bit register)
+0x14 - MOVL - DSTREG[7:0] ← IMMEDIATE (8-bit)
+0x15 - ADD - DSTREG ← SREG1 + SREG2
+0x16 - ADC - DSTREG ← SREG1 + SREG2 + CARRY
+0x17 - SUB - DSTREG ← SREG1 - SREG2
+0x18 - MOVS - DSTREG ← SREG1, Flags will change
+0x19 - ADDS - DSTREG ← SREG1 + SREG2, Flags will change
+0x1A - SUBS - DSTREG ← SREG1 - SREG2, Flags will change
+0x1B - ANDS - DSTREG ← SREG1 AND SREG2, Flags will change
+0x1C - ORRS - DSTREG ← SREG1 OR SREG2, Flags will change
+0x1D - XORS - DSTREG ← SREG1 XOR SREG2, Flags will change
+0x1E - BX - M[SP] ← PC, PC ← Rx
+0x1F - BL - PC ← M[SP]
+0x20 - LDRIM - Rx ← VALUE (VALUE defined in ADDRESS bits)
+0x21 - STRIM - M[AR+OFFSET] ← Rx (AR is 16-bit register) (OFFSET defined in ADDRESS bits)
+Table 2: RSel table.
+RSEL - REGISTER
+00 - R1
+01 - R2
+10 - R3
+11 - R4
+Table 3: DSTREG/SREG1/SREG2 selection table.
+DSTREG/SREG1/SREG2 REGISTER
+000 - PC
+001 - PC
+010 - SP
+011 - AR
+100 - R1
+101 - R2
+110 - R3
+111 - R4
